@@ -26,7 +26,7 @@ RUN mv /opt/keycloak/bin/kc.sh /opt/keycloak/bin/kc.sh.orig && \
       '  fi' \
       'fi' \
       'if [ "$1" = "start" ] || [ "$1" = "start-dev" ]; then' \
-      '  exec /opt/keycloak/bin/kc.sh.orig "$@" --import-realm' \
+      '  exec /opt/keycloak/bin/kc.sh.orig "$@" --import-realm --import-replace' \
       'else' \
       '  exec /opt/keycloak/bin/kc.sh.orig "$@"' \
       'fi' > /opt/keycloak/bin/kc.sh && \
