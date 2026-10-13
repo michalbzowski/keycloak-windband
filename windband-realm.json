@@ -90,7 +90,8 @@
       "fullScopeAllowed": true,
       "redirectUris": [
         "http://localhost:8080/login/oauth2/code/keycloak",
-        "https://app.bandmanager.pl/login/oauth2/code/keycloak"
+        "https://app.bandmanager.pl/login/oauth2/code/keycloak",
+        "https://admin.bandmanager.pl/callback"
       ],
       "webOrigins": [
         "http://localhost:8080",
@@ -120,7 +121,7 @@
       "credentials": [
         {
           "type": "password",
-          "value": "admin"
+          "value": "$2a$10$H/D9qEj0NpP514rlBZg8le2zpw9yAAp3xyijbfXcZrNMnWsc7N4NS"
         }
       ],
       "realmRoles": [
@@ -137,7 +138,7 @@
       "credentials": [
         {
           "type": "password",
-          "value": "__MBZ_ADMIN_PASSWORD__"
+          "value": "$2a$10$tR8SQRG6YrxdYsdY.xVZLuL4b2v1qIQ8tIFLigunxzP..FuJfMdYq"
         }
       ],
       "realmRoles": [
