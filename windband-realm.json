@@ -1,0 +1,156 @@
+{
+  "realm": "windband",
+  "enabled": true,
+  "displayName": "Windband Manager (local)",
+  "loginTheme": "bandmanager",
+  "registrationAllowed": true,
+  "registrationEmailAsUsername": false,
+  "rememberMe": true,
+  "verifyEmail": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": false,
+  "sslRequired": "none",
+  "clients": [
+    {
+      "clientId": "windband-local",
+      "name": "Windband Manager Local",
+      "description": "Local development OIDC client for the Spring Boot app",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "windband-local-secret",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "fullScopeAllowed": true,
+      "redirectUris": [
+        "http://localhost:8080/login/oauth2/code/keycloak",
+        "http://localhost:8080/register",
+        "http://localhost:8080/*"
+      ],
+      "webOrigins": [
+        "http://localhost:8080"
+      ],
+      "defaultClientScopes": [
+        "web-origins",
+        "profile",
+        "roles",
+        "email"
+      ]
+    },
+    {
+      "clientId": "windband-inventory",
+      "name": "Windband Inventory (SPA)",
+      "description": "Public PKCE OIDC client for the windband-inventory React SPA — canonical client_id in every environment (local + production; Bearer against /api/v1 integration API)",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "fullScopeAllowed": true,
+      "redirectUris": [
+        "http://localhost:5173/*",
+        "https://inventory.bandmanager.pl/callback",
+        "http://inventory.bandmanager.pl/callback"
+      ],
+      "webOrigins": [
+        "http://localhost:5173",
+        "https://*.bandmanager.pl",
+        "https://inventory.bandmanager.pl"
+      ],
+      "defaultClientScopes": [
+        "web-origins",
+        "profile",
+        "roles",
+        "email"
+      ],
+      "attributes": {
+        "post.logout.redirect.uris": "+",
+        "use.ssl": "true"
+      }
+    },
+    {
+      "clientId": "windband-manager",
+      "name": "Wind Band Manager (Spring Boot app)",
+      "description": "Confidential PKCE OIDC client for app.bandmanager.pl — login (auth_code) + Bearer against /api/v1 of windband-inventory",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "55LSVPMzR50oECyjaJwCpwm3XaruvLUZ    ║",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "fullScopeAllowed": true,
+      "redirectUris": [
+        "http://localhost:8080/login/oauth2/code/keycloak",
+        "https://app.bandmanager.pl/login/oauth2/code/keycloak"
+      ],
+      "webOrigins": [
+        "http://localhost:8080",
+        "https://app.bandmanager.pl"
+      ],
+      "defaultClientScopes": [
+        "web-origins",
+        "profile",
+        "roles",
+        "email"
+      ],
+      "attributes": {
+        "post.logout.redirect.uris": "+",
+        "pkce.code.challenge.method": "S256",
+        "use.ssl": "true"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "admin",
+      "email": "admin@localhost",
+      "firstName": "Admin",
+      "lastName": "Local",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin"
+        }
+      ],
+      "realmRoles": [
+        "default-roles-windband"
+      ]
+    },
+    {
+      "username": "mbz-admin",
+      "email": "mbz-admin@bandmanager.pl",
+      "firstName": "Michal",
+      "lastName": "WMS Ops",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "AWa58i1QlqbMHIaUtctVHCaw"
+        }
+      ],
+      "realmRoles": [
+        "admin",
+        "default-roles-windband"
+      ]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "admin"
+      }
+    ]
+  }
+}
