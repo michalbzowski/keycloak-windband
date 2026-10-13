@@ -82,7 +82,7 @@
       "enabled": true,
       "protocol": "openid-connect",
       "publicClient": false,
-      "secret": "55LSVPMzR50oECyjaJwCpwm3XaruvLUZ    ║",
+      "secret": "__WM_CLIENT_SECRET__",
       "standardFlowEnabled": true,
       "implicitFlowEnabled": false,
       "directAccessGrantsEnabled": true,
@@ -137,7 +137,7 @@
       "credentials": [
         {
           "type": "password",
-          "value": "AWa58i1QlqbMHIaUtctVHCaw"
+          "value": "__MBZ_ADMIN_PASSWORD__"
         }
       ],
       "realmRoles": [
